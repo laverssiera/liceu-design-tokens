@@ -1,0 +1,28 @@
+{
+  "name": "@liceu/design-tokens",
+  "version": "0.1.0",
+  "description": "Tokens de design do LICEU 6.0 (L6-FE-001) e as regras R01–R07 que viajam com eles. CSS gerado de tokens.json — nunca editado à mão.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laverssiera/liceu-design-tokens.git"
+  },
+  "files": [
+    "dist/tokens.css",
+    "dist/RULES.md",
+    "tokens.json",
+    "rules.json"
+  ],
+  "main": "tokens.json",
+  "style": "dist/tokens.css",
+  "exports": {
+    ".": "./tokens.json",
+    "./tokens.css": "./dist/tokens.css",
+    "./rules": "./rules.json",
+    "./RULES.md": "./dist/RULES.md",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "dist/tokens.css"
+  ]
+}

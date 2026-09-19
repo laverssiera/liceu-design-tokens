@@ -1,0 +1,5 @@
+# dist/ e gerado: bytes exatos, sem conversao de fim de linha, para que o
+# --check da CI compare o que o gerador escreveu, nao o que o git converteu.
+dist/** -text
+tokens.json -text
+rules.json -text

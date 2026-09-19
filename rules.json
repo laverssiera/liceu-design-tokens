@@ -1,0 +1,64 @@
+{
+  "name": "@liceu/design-tokens",
+  "version": "0.1.0",
+  "source": "L6-FE-001. Texto das regras conforme os artefatos Universal Shell e Drawers (2026-09-18).",
+  "principle": "Uma interface que inventa evidência viola a constituição que deveria tornar visível. Onde não há dado, a interface diz que não há.",
+  "rules": [
+    {
+      "id": "R01",
+      "status": "ACTIVE",
+      "text": "Botão de recomendação nunca pode parecer autorização.",
+      "prevents": "botão de recomendação parecer autorização",
+      "tokens": ["color.semantic.intelligence", "color.semantic.authority"],
+      "note": "Recomendar (JOHN) e decidir (Mãe) são atos de camadas diferentes. A distinção é visual antes de textual: o usuário aprende pela cor antes de ler o rótulo. Explain, Simulate, Compare e Evidence são leitura; Escalate transfere para quem decide — não decide."
+    },
+    {
+      "id": "R02",
+      "status": "ACTIVE",
+      "text": "Ausência de dado se declara, nunca se preenche com exemplo.",
+      "prevents": "preencher ausência com exemplo",
+      "tokens": ["color.status.blocked"],
+      "note": "Campo sem valor mostra travessão (—). Um drawer com um id inventado ensinaria o usuário a confiar num número que não existe. Dado parcial não vira dado inventado."
+    },
+    {
+      "id": "R03",
+      "status": "PENDENTE",
+      "text": null,
+      "prevents": null,
+      "tokens": [],
+      "note": "Texto não localizado nos artefatos Universal Shell e Drawers; o L6-FE-001 não está em repositório. Registrado como pendente para não inventar regra (R02 aplicada às próprias regras)."
+    },
+    {
+      "id": "R04",
+      "status": "ACTIVE",
+      "text": "Dourado só aparece onde há autoridade estabelecida.",
+      "prevents": "dourado sem autoridade estabelecida",
+      "tokens": ["color.semantic.authority"],
+      "note": "Dourado não decora: dourado significa autoridade. O authority_epoch no topo só mostra número quando houver época vigente; até lá, 'não estabelecida'."
+    },
+    {
+      "id": "R05",
+      "status": "ACTIVE",
+      "text": "Campo mono vazio nunca vira zero nem id fictício.",
+      "prevents": "campo mono vazio virar zero ou id fictício",
+      "tokens": ["font.mono", "color.status.blocked"],
+      "note": "Identificadores, épocas, hashes e contagens vivem em mono. Vazio é travessão em blocked; '0' só quando a contagem é de fato zero (ex.: 'fontes 0')."
+    },
+    {
+      "id": "R06",
+      "status": "PENDENTE",
+      "text": null,
+      "prevents": null,
+      "tokens": [],
+      "note": "Texto não localizado nos artefatos Universal Shell e Drawers; o L6-FE-001 não está em repositório. Registrado como pendente para não inventar regra."
+    },
+    {
+      "id": "R07",
+      "status": "ACTIVE",
+      "text": "A barra de proveniência nunca se esconde quando falta dado.",
+      "prevents": "esconder a barra de proveniência quando falta dado",
+      "tokens": ["layout.prov", "color.status.blocked"],
+      "note": "Permanente, por constituição. Passa de vermelha a preenchida por campo, não de uma vez: contexto, evidência, autoridade, lineage, ciclo."
+    }
+  ]
+}

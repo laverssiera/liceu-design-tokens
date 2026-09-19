@@ -1,0 +1,49 @@
+name: CI
+
+# O CSS e GERADO do JSON — nunca editado a mao. Este workflow falha se o
+# dist/ commitado divergir do gerado: quem editar o CSS ve a CI vermelha, e a
+# proxima geracao sobrescreve. A fonte e tokens.json + rules.json.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  generated-matches-source:
+    name: dist/ e o gerado de tokens.json + rules.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Valida a fonte (todo token com value; exatamente R01..R07; regra
+      # ACTIVE com texto, PENDENTE sem; referencias a tokens existentes) e
+      # compara o gerado com o commitado. Sem dependencias.
+      - name: Validar fonte e conferir dist/ (python scripts/build.py --check)
+        run: python scripts/build.py --check
+
+      # O que o consumidor recebe: os 17 nomes que os drawers 0.1.0 ja usam
+      # tem de existir no CSS gerado. Renomear token e MAJOR, nao higiene.
+      - name: Nomes publicos do 0.1.0 presentes
+        run: |
+          for v in obsidian graphite steel slate white intelligence evidence authority execution \
+                   verified attention blocked sans mono radius-sm radius-md motion-reveal; do
+            grep -q -- "--liceu-$v:" dist/tokens.css || { echo "::error::--liceu-$v ausente em dist/tokens.css"; exit 1; }
+          done
+          echo "17 nomes publicos presentes"
+
+      - name: Versao coerente (package.json == tokens.json == rules.json)
+        run: |
+          python - <<'PY'
+          import json, sys
+          v = {f: json.load(open(f, encoding="utf-8"))["version"] for f in ("package.json", "tokens.json", "rules.json")}
+          print(v)
+          sys.exit(0 if len(set(v.values())) == 1 else 1)
+          PY

@@ -1,0 +1,38 @@
+/* @liceu/design-tokens 0.1.0 — GERADO de tokens.json (sha256 472ea412f8f13d03). NAO EDITAR. */
+/* Fonte: L6-FE-001 — Universal Shell e Drawers (implementação de referência, 2026-09-18) */
+:root {
+  /* color.foundation — Superfícies e texto. Neutros; nenhum carrega significado constitucional. */
+  --liceu-obsidian: #0B0F14;  /* fundo da aplicação */
+  --liceu-graphite: #151B23;  /* painéis, barra superior, rail, drawers */
+  --liceu-steel: #263241;  /* bordas e divisores */
+  --liceu-slate: #64748B;  /* texto secundário, rótulos, neutro */
+  --liceu-white: #F8FAFC;  /* texto primário */
+
+  /* color.semantic — A cor É a camada constitucional. Cada valor aponta para quem produz o fato; nenhum decora. */
+  --liceu-intelligence: #06B6D4;  /* JOHN recomenda */
+  --liceu-evidence: #7C3AED;  /* CEFEIDA evidencia */
+  --liceu-authority: #C89B3C;  /* Mãe autoriza — só aparece onde há autoridade estabelecida (R04) */
+  --liceu-execution: #2563EB;  /* OPERA executa */
+
+  /* color.status — Estado do fato, não camada. Usados em chips, barra de proveniência e nós de lineage. */
+  --liceu-verified: #16A34A;  /* verificado */
+  --liceu-attention: #F59E0B;  /* atenção / mecanismo pronto sem fato */
+  --liceu-blocked: #DC2626;  /* bloqueado / ausente — também a cor do campo vazio (R02, R05) */
+
+  /* font — Duas famílias. Mono para identificadores, ids, épocas e valores; sans para prosa. */
+  --liceu-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --liceu-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* radius — Cantos quase retos. O sistema é instrumento, não produto de consumo. */
+  --liceu-radius-sm: 2px;
+  --liceu-radius-md: 3px;
+
+  /* motion — Um único tempo de revelação. Reduzido a zero sob prefers-reduced-motion pelo consumidor. */
+  --liceu-motion-reveal: 120ms cubic-bezier(.2, 0, .2, 1);
+
+  /* layout — Medidas fixas do Universal Shell. A barra de proveniência é permanente (R07): sua altura é token, não opção. */
+  --liceu-layout-rail: 248px;  /* largura da navegação lateral */
+  --liceu-layout-bar: 52px;  /* altura da barra superior */
+  --liceu-layout-prov: 44px;  /* altura da barra de proveniência */
+}
+:root:not([data-theme="light"]) { color-scheme: dark; }
